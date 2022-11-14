@@ -1,5 +1,5 @@
 <script>
-import { store } from '../store'
+import { store } from '../store.js'
 
 export default {
       name: 'AppMain',
@@ -21,15 +21,16 @@ export default {
                               <option value="3">Three</option>
                         </select>
                   </div>
-                  <div class="row">
-                        <div class="col" v-for="character in store.characters">
-                              <div class="card">
-                                    <img :src="character.img" class="card-img-top" :alt="character.name">
+                  <div class="row row-cols-5">
+                        <div class="col g-2" v-for="character in store.characters">
+                              <div class="card my_card">
+                                    <img :src="character.img" class="card-img-top" alt="">
                                     <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <p class="card-text">Some quick example text to build on the card title and
-                                                make up the bulk of the card's
-                                                content.</p>
+                                          <h5 class="card-title">{{ character.name }}</h5>
+                                          <div class="info text-muted">
+                                                <p>{{ character.category }}</p>
+                                                <p>{{ character.status }}</p>
+                                          </div>
                                     </div>
                               </div>
                         </div>
@@ -43,5 +44,23 @@ export default {
 .select_category {
       max-width: 300px;
       width: fit-content;
+}
+
+.row {
+      background-color: $light;
+      padding: 2rem;
+
+
+      .my_card {
+            height: 100%;
+            text-align: center;
+            background-color: $darker;
+
+            h5 {
+                  font-weight: bold;
+                  text-transform: uppercase;
+                  color: $light;
+            }
+      }
 }
 </style>

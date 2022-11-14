@@ -19,7 +19,9 @@ export default {
     callApi(url) {
       axios.get(url)
         .then(response => {
+          store.characters = response.data
           console.log(response.data);
+
         })
         .catch(err => {
           this.store.error = err.message
