@@ -2,13 +2,15 @@
 import axios from 'axios'
 import AppHeader from './components/AppHeader.vue'
 import AppMain from './components/AppMain.vue'
+import AppLoader from './components/AppLoader.vue'
 import { store } from './store.js'
 
 export default {
   name: 'App',
   components: {
     AppHeader,
-    AppMain
+    AppMain,
+    AppLoader
   },
   data() {
     return {
@@ -19,9 +21,10 @@ export default {
     callApi(url) {
       axios.get(url)
         .then(response => {
+          /* console.log(response.data); */
           store.characters = response.data
           store.charactersLength = response.data.length
-          console.log(response.data);
+          store.loader = 1
 
         })
         .catch(err => {
@@ -40,7 +43,8 @@ export default {
 
 <template>
   <AppHeader />
-  <AppMain />
+  <AppLoader v-if="store.loader === 0" />
+  <AppMain v-else />
 </template>
 
 <style scoped>
