@@ -1,12 +1,12 @@
 <script>
-import { store } from '../store.js'
+import SingleCard from './SingleCard.vue'
+import CharactersLength from './CharactersLength.vue'
 
 export default {
       name: 'AppMain',
-      data() {
-            return {
-                  store
-            }
+      components: {
+            SingleCard,
+            CharactersLength
       }
 }
 </script>
@@ -22,18 +22,8 @@ export default {
                         </select>
                   </div>
                   <div class="row row-cols-5">
-                        <div class="col g-2" v-for="character in store.characters">
-                              <div class="card my_card">
-                                    <img :src="character.img" class="card-img-top" alt="">
-                                    <div class="card-body">
-                                          <h5 class="card-title">{{ character.name }}</h5>
-                                          <div class="info text-muted">
-                                                <p>{{ character.category }}</p>
-                                                <p>{{ character.status }}</p>
-                                          </div>
-                                    </div>
-                              </div>
-                        </div>
+                        <CharactersLength />
+                        <SingleCard />
                   </div>
             </div>
       </main>
@@ -51,16 +41,5 @@ export default {
       padding: 2rem;
 
 
-      .my_card {
-            height: 100%;
-            text-align: center;
-            background-color: $darker;
-
-            h5 {
-                  font-weight: bold;
-                  text-transform: uppercase;
-                  color: $light;
-            }
-      }
 }
 </style>

@@ -20,6 +20,7 @@ export default {
       axios.get(url)
         .then(response => {
           store.characters = response.data
+          store.charactersLength = response.data.length
           console.log(response.data);
 
         })
