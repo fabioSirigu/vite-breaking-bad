@@ -21,7 +21,7 @@ export default {
             selectCategory() {
                   let categoryUrl = store.API_URL;
                   /* console.log(categoryUrl); */
-                  if (this.store.selectCategory !== 'Seleziona la categoria') {
+                  if (this.store.selectCategory !== 'Seleziona la serie') {
                         const selectSeries = this.store.selectCategory
                         /* console.log(this.store.selectCategory); */
                         categoryUrl = `${this.store.API_URL}?category=${selectSeries}`
