@@ -3,7 +3,6 @@ import { store } from '../store.js'
 import SingleCard from './SingleCard.vue'
 import CharactersLength from './CharactersLength.vue'
 import CategorySelector from './CategorySelector.vue'
-import axios from 'axios'
 
 export default {
       name: 'AppMain',
@@ -27,15 +26,7 @@ export default {
                         categoryUrl = `${this.store.API_URL}?category=${selectSeries}`
                   }
 
-                  axios.get(categoryUrl)
-                        .then(resp => {
-                              console.log(resp)
-                              this.store.characters = resp.data
-                              this.store.charactersLength = response.data.length
-                        })
-                        .catch(err => {
-                              console.log(err);
-                        })
+                  store.callApi(categoryUrl)
             }
       }
 }
