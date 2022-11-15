@@ -1,26 +1,49 @@
 <script>
+import { store } from '../store.js'
 import SingleCard from './SingleCard.vue'
 import CharactersLength from './CharactersLength.vue'
+import CategorySelector from './CategorySelector.vue'
+import axios, { Axios } from 'axios'
 
 export default {
       name: 'AppMain',
       components: {
             SingleCard,
-            CharactersLength
+            CharactersLength,
+            CategorySelector
+      },
+      data() {
+            return {
+                  store
+            }
+      },
+      methods: {
+            selectCategory() {
+                  let categoryUrl = store.API_URL;
+                  /* console.log(categoryUrl); */
+                  if (this.store.selectCategory !== 'Seleziona la categoria') {
+                        const selectSeries = this.store.selectCategory
+                        /* console.log(this.store.selectCategory); */
+                        categoryUrl = `${this.store.API_URL}?category=${selectSeries}`
+                  }
+
+                  axios.get(categoryUrl)
+                        .then(resp => {
+                              console.log(resp)
+                              this.store.characters = resp.data
+                              this.store.charactersLength = response.data.length
+                        })
+                        .catch(err => {
+                              console.log(err);
+                        })
+            }
       }
 }
 </script>
 <template>
       <main>
             <div class="container">
-                  <div class="select_category">
-                        <select class="form-select form-select-lg mb-3">
-                              <option selected>Select Category</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                        </select>
-                  </div>
+                  <CategorySelector @selectCategory="selectCategory()" />
                   <div class="row row-cols-5">
                         <CharactersLength />
                         <SingleCard />

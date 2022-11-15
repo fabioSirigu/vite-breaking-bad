@@ -32,6 +32,11 @@ export default {
       text-align: center;
       background-color: $darker;
 
+      img {
+            height: 360px;
+            object-fit: cover;
+      }
+
       h5 {
             font-weight: bold;
             text-transform: uppercase;

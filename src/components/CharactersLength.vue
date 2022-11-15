@@ -7,12 +7,17 @@ export default {
             return {
                   store
             }
+      },
+      computed: {
+            foundActors() {
+                  return store.characters.length
+            }
       }
 }
 </script>
 <template>
       <div class="list">
-            <h3>Found {{ store.charactersLength }} characters</h3>
+            <h3>Found {{ foundActors }} characters</h3>
       </div>
 </template>
 <style lang="scss" scoped>
