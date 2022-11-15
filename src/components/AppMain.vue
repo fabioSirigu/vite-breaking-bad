@@ -3,7 +3,7 @@ import { store } from '../store.js'
 import SingleCard from './SingleCard.vue'
 import CharactersLength from './CharactersLength.vue'
 import CategorySelector from './CategorySelector.vue'
-import axios, { Axios } from 'axios'
+import axios from 'axios'
 
 export default {
       name: 'AppMain',

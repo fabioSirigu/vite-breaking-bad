@@ -16,8 +16,9 @@ export default {
 
 header {
       display: flex;
-      padding: 1rem;
+      padding: 2rem;
       align-items: center;
+      justify-content: center;
 
       .title {
             color: $light;
@@ -26,7 +27,7 @@ header {
 
       .logo {
             img {
-                  width: 100px;
+                  width: 200px;
                   margin-right: 0.5rem;
             }
       }

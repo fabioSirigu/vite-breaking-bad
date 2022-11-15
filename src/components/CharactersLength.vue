@@ -17,7 +17,7 @@ export default {
 </script>
 <template>
       <div class="list">
-            <h3>Found {{ foundActors }} characters</h3>
+            <h3>Found {{ foundActors }} actors</h3>
       </div>
 </template>
 <style lang="scss" scoped>

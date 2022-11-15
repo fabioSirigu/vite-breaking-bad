@@ -13,7 +13,7 @@ export default {
       <div class="select_category">
             <select class="form-select form-select-lg mb-3" v-model="store.selectCategory"
                   @change="$emit('selectCategory')">
-                  <option selected>Seleziona la categoria</option>
+                  <option selected>Seleziona la serie</option>
                   <option value="Breaking Bad">Breaking Bad</option>
                   <option value="Better Call Saul">Better Call Saul</option>
             </select>
